@@ -1,0 +1,41 @@
+<div class="columns" cdkDropListGroup>
+    
+    <div class="columns--item" cdkDropList [cdkDropListData]="backlog" (cdkDropListDropped)="drop($event)">
+        <div class="columns--item--title">
+            <span>Backlog</span>
+            <a class="columns--item--btn__add" (click)="addNewItem()">
+                <em class="fas fa-plus-square"></em>
+            </a>
+        </div>
+        <div *ngFor="let task of backlog" cdkDrag>
+            <app-task [taskItem]="task"  [type]="'backlog'"></app-task>
+        </div>
+    </div>
+    
+    <div class="columns--item" cdkDropList [cdkDropListData]="development" (cdkDropListDropped)="drop($event)">
+        <div class="columns--item--title">Development</div>
+        <div *ngFor="let task of development" cdkDrag>
+            <app-task [taskItem]="task" [type]="'development'"></app-task>
+        </div>
+    </div>
+
+    
+    <div class="columns--item" cdkDropList [cdkDropListData]="codeReveiw" (cdkDropListDropped)="drop($event)">
+        <div class="columns--item--title">Code Review</div>
+        <div *ngFor="let task of codeReveiw" cdkDrag>
+            <app-task [taskItem]="task"  [type]="'codeReveiw'"></app-task>
+        </div>
+    </div>
+    <div class="columns--item" cdkDropList [cdkDropListData]="acceptance" (cdkDropListDropped)="drop($event)">
+        <div class="columns--item--title">Acceptance</div>
+        <div *ngFor="let task of acceptance" cdkDrag>
+            <app-task [taskItem]="task"  [type]="'acceptance'"></app-task>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<router-outlet></router-outlet>
